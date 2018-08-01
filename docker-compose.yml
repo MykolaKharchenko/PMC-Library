@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  pmcdata:
+    image: pmcdata
+    build:
+      context: .\PMC Data
+      dockerfile: Dockerfile
