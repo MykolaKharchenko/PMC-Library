@@ -9,8 +9,7 @@ namespace ModelsLib
 {
     public class Point<T> : IPoint //where T : struct
     {
-        private readonly T coordX_, coord_Y, coord_Z;//= default(T);       
-        //public Point() { }
+        private readonly T coordX_, coord_Y, coord_Z;//= default(T);            
         public Point(T x)
         {
 

@@ -10,120 +10,105 @@ namespace ModelsLib
 {
     public abstract class ContainersCreator : IEnumerable
     {
-        private Container[] containers;
-
-        public Container[] _containers
+        private Container[] _containers;
+        
+        public Container[] containers
         {
-            get { return containers; }
+            get { return _containers; }
+        }
+        public ContainersCreator()
+        {
+            this._containers = (Container[])Array.CreateInstance(typeof(Container), 0);
         }
 
         public abstract void AddItem(Container _newContainer);
         public abstract void RemoveItem(int _index);
         public abstract void ClearAll();
-
-        public abstract Container[] InitCollection();
+        //public abstract Container[] InitCollection();
 
         public IEnumerator GetEnumerator()
         {
-            return _containers.GetEnumerator();
+            return containers.GetEnumerator();
         }
 
         public int Length
         {
-            get { return _containers.Length; }
+            get { return containers.Length; }
         }
 
         public Container this[int index]
         {
-            get { return _containers[index]; }
-            set { _containers[index] = value; }
+            get { return containers[index]; }
+            set { containers[index] = value; }
         }
-
         //public abstract int PropName { get; set; }
     }
-
     public class ContainersIntCreator : ContainersCreator
     {
-        public override Container[] InitCollection()
-        {
-            return null;
-        }
-
-
         public override void AddItem(Container newContainer)
         {
-            CommonFunc.AddItem<Container>(_containers, newContainer);
+            CommonFunc.AddItem<Container>(containers, newContainer);
         }
 
         public override void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem<Container>(_containers, index);
+            CommonFunc.RemoveItem<Container>(containers, index);
         }
 
         public override void ClearAll()
         {
-            CommonFunc.DefaultInit(this._containers);
+            CommonFunc.DefaultInit(this.containers);
         }
     }
 
     public class ContainersDecimalCreator : ContainersCreator
     {
-        public override Container[] InitCollection()
-        {
-            return base._containers;
-        }
 
         public override void AddItem(Container newContainer)
         {
-            CommonFunc.AddItem<Container>(_containers, newContainer);
+            CommonFunc.AddItem<Container>(containers, newContainer);
         }
 
         public override void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem<Container>(_containers, index);
+            CommonFunc.RemoveItem<Container>(containers, index);
         }
 
         public override void ClearAll()
         {
-            CommonFunc.DefaultInit(this._containers);
+            CommonFunc.DefaultInit(this.containers);
         }
     }
     public class ContainersDoubleCreator : ContainersCreator
     {
-        public override Container[] InitCollection()
-        {
-            return base._containers;
-        }
         public override void AddItem(Container newContainer)
         {
-            CommonFunc.AddItem<Container>(_containers, newContainer);
+            CommonFunc.AddItem<Container>(containers, newContainer);
         }
 
         public override void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem<Container>(_containers, index);
+            CommonFunc.RemoveItem<Container>(containers, index);
         }
 
         public override void ClearAll()
         {
-            CommonFunc.DefaultInit(this._containers);
+            CommonFunc.DefaultInit(this.containers);
         }
     }
 
+    /*
     public abstract class IContainers
     {
-        void AddItem() { }
-        void RemoveItem() { }
-        void ClearAll() { }
     }
-
     public class Containers : IContainers
     {
         //public Containers()
         //{
         //    this._containers = (Container[])Array.CreateInstance(typeof(Container), 0);
         //}
-    }
+    }    
+    */
 }
 
 
