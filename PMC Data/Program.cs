@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 using ModelsLib;
 using ModelsLib.Interfaces;
 using ModelsLib.Collections;
+using ModelsLib.ContainersCreating;
 
 namespace PMC_Data
 {
-    //  https://www.youtube.com/watch?v=jQgwEsJISy0    - about delegates and events
-
     class Program
     {
         static void Main(string[] args)
@@ -27,6 +26,13 @@ namespace PMC_Data
             }
 
             return;
+
+
+
+
+
+
+
 
 
 
