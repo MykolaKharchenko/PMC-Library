@@ -16,6 +16,15 @@ namespace PMC_Data
     {
         static void Main(string[] args)
         {
+            ContainersCreator[] cc = new ContainersCreator[2];
+
+            cc[0] = new ContainersDecimalCreator();
+            cc[1] = new ContainersIntCreator();
+
+            foreach (var item in cc)
+            {
+
+            }
 
             return;
 
@@ -58,8 +67,8 @@ namespace PMC_Data
     //        cntr.AddItem(mtrx1);
 
             var cntrs1 = new Containers();
-            cntrs1.AddItem(cntr);
-            var cntrs_index = cntrs1[0];
+            //cntrs1.AddItem(cntr);
+            //var cntrs_index = cntrs1[0];
 
             Console.ReadKey();
 

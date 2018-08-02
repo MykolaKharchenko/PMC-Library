@@ -6,21 +6,15 @@ using System.Threading.Tasks;
 
 namespace ModelsLib
 {
-
-
-
-
-
-
     public interface IAncestorPoint
     {
         void InitStruct();
     }
 
-    public interface IProtoPoint <T> : IAncestorPoint
+    public interface IProtoPoint<T> : IAncestorPoint
     {
         // пока пустой,         
-         void CheckTypes(T  _variable);
+        void CheckTypes(T _variable);
     }
 
     public class ProtoPoint<T> : IProtoPoint<T> //where T : struct
@@ -28,7 +22,7 @@ namespace ModelsLib
         private readonly T coordX_, coord_Y;//= default(T);       
         private static bool Check = true;
         public ProtoPoint() { }
-    
+
         public ProtoPoint(T x, T y)
         {
             CheckTypes(x);
@@ -39,7 +33,7 @@ namespace ModelsLib
             this.coord_Y = y;
         }
 
-           public void CheckTypes(T _x)
+        public void CheckTypes(T _x)
         {
             Type t = _x.GetType();
             if (t.Equals(typeof(Int32)) || t.Equals(typeof(decimal)) || t.Equals(typeof(double))) { }
@@ -51,10 +45,8 @@ namespace ModelsLib
         {
 
         }
-    } 
+    }
 }
-
-
 /*
     public abstract class ProtoPoint
     {

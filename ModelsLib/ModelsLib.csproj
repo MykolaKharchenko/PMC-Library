@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\Container.cs" />
-    <Compile Include="Collections\Containers.cs" />
     <Compile Include="Collections\Matrix.cs" />
     <Compile Include="CommonFunc.cs" />
     <Compile Include="Interfaces\Ipoint.cs" />
@@ -49,7 +48,7 @@
     <Compile Include="Collections\Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtoPoint.cs" />
-    <Compile Include="TestPlace.cs" />
+    <Compile Include="Collections\Containers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
