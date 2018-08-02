@@ -10,7 +10,8 @@ namespace ModelsLib.ContainersCreating
 {
     public abstract class ContainersCreator
     {
-        //public Containers ss;
+        public Containers currentContainers;
+
         private Container[] _containers;
 
         public Container[] containers
@@ -26,3 +27,8 @@ namespace ModelsLib.ContainersCreating
         public abstract void ClearAll();
     }
 }
+
+/*
+ Container<T> ?
+ new Container<INT>()
+*/

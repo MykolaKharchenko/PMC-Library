@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelsLib.Interfaces;
 
-namespace ModelsLib
+namespace ModelsLib.Collections
 {
     public class Position : IEnumerable
     {
