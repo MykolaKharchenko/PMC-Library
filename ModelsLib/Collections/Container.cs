@@ -10,34 +10,34 @@ namespace ModelsLib.Collections
 {
     public class Container<T> : IEnumerable, IContainer
     {
-        private Matrix[] _container;
+        private Matrix<T>[] _container;
 
         public Container()
         {
-            this._container = (Matrix[])Array.CreateInstance(typeof(Matrix), 0);
+            this._container = (Matrix<T>[])Array.CreateInstance(typeof(Matrix<T>), 0);
         }
 
-        public Container(params Matrix[] _collection)
+        public Container(params Matrix<T>[] _collection)
         {
-            Matrix[] tempContainer = new Matrix[_collection.Length];
+            Matrix<T>[] tempContainer = new Matrix<T>[_collection.Length];
             for (int i = 0; i < _collection.Length; i++)
                 tempContainer[i] = _collection[i];
             _container = tempContainer;
         }
 
-        public void AddItem(Matrix newMatrix)
+        public void AddItem(Matrix<T> newMatrix)
         {
-            CommonFunc.AddItem<Matrix>(_container, newMatrix);
+            CommonFunc.AddItem(_container, newMatrix);
         }
 
         public void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem<Matrix>(_container, index);
+            CommonFunc.RemoveItem(_container, index);
         }
 
         public void ClearAll()
         {
-            CommonFunc.DefaultInit(this._container);
+            CommonFunc.DefaultInit(out this._container);
         }
 
         public IEnumerator GetEnumerator()
@@ -50,7 +50,7 @@ namespace ModelsLib.Collections
             get { return _container.Length; }
         }
 
-        public Matrix this[int index]
+        public Matrix<T> this[int index]
         {
             get { return _container[index]; }
             set { _container[index] = value; }

@@ -7,36 +7,36 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.Collections
 {
-    public class Matrix : IEnumerable
+    public class Matrix<T> : IEnumerable
     {
-        private Position[] _matrix;
+        private Position<T>[] _matrix;
 
         public Matrix()
         {
-            this._matrix = (Position[])Array.CreateInstance(typeof(Position), 0);
+            this._matrix = (Position<T>[])Array.CreateInstance(typeof(Position<T>), 0);
         }
 
-        public Matrix(params Position[] _collection)
+        public Matrix(params Position<T>[] _collection)
         {
-            Position[] tempMatrix = new Position[_collection.Length];
+            Position<T>[] tempMatrix = new Position<T>[_collection.Length];
             for (int i = 0; i < _collection.Length; i++)
                 tempMatrix[i] = _collection[i];
             _matrix = tempMatrix;
         }
 
-        public void AddItem(Position newPosition)
+        public void AddItem(Position<T> newPosition)
         {
-            CommonFunc.AddItem<Position>(_matrix, newPosition);
+            CommonFunc.AddItem(_matrix, newPosition);
         }
 
         public void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem<Position>(_matrix, index);
+            CommonFunc.RemoveItem(_matrix, index);
         }
 
         public void ClearAll()
         {
-            CommonFunc.DefaultInit(this._matrix);
+            CommonFunc.DefaultInit(out this._matrix);
         }
 
         public IEnumerator GetEnumerator()
@@ -49,7 +49,7 @@ namespace ModelsLib.Collections
             get { return _matrix.Length; }
         }
 
-        public Position this[int index]
+        public Position<T> this[int index]
         {
             get { return _matrix[index]; }
             set { _matrix[index] = value; }

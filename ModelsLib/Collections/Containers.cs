@@ -18,35 +18,43 @@ namespace ModelsLib.Collections
             this._containers = (Container<T>[])Array.CreateInstance(typeof(Container<T>), 0);
         }
 
+        public Containers(params Container<T>[] _collection)
+        {
+            Container<T>[] tempContainers = new Container<T>[_collection.Length];
+            for (int i = 0; i < _collection.Length; i++)
+                tempContainers[i] = _collection[i];
+            _containers = tempContainers;
+        }
+
         public void AddItem(Container<T> newContainer)
         {
             CommonFunc.AddItem(_containers, newContainer);
         }
 
-        //public void RemoveItem(int index)
-        //{
-        //    CommonFunc.RemoveItem<IContainer>(_containers, index);
-        //}
+        public void RemoveItem(int index)
+        {
+            CommonFunc.RemoveItem<IContainer>(_containers, index);
+        }
 
-        //public void ClearAll()
-        //{
-        //    CommonFunc.DefaultInit(this._containers);
-        //}
+        public void ClearAll()
+        {
+            CommonFunc.DefaultInit(out _containers);
+        }
 
-        //public IEnumerator GetEnumerator()
-        //{
-        //    return _containers.GetEnumerator();
-        //}
+        public IEnumerator GetEnumerator()
+        {
+            return _containers.GetEnumerator();
+        }
 
-        //public int Length
-        //{
-        //    get { return _containers.Length; }
-        //}
+        public int Length
+        {
+            get { return _containers.Length; }
+        }
 
-        //public IContainer this[int index]
-        //{
-        //    get { return _containers[index]; }
-        //    set { _containers[index] = value; }
-        //}
+        public Container<T> this[int index]
+        {
+            get { return _containers[index]; }
+            set { _containers[index] = value; }
+        }
     }
 }

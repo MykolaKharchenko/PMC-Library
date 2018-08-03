@@ -8,7 +8,7 @@ namespace ModelsLib
 {
     class CommonFunc
     {
-        public static void DefaultInit<T>(T[] AnyStructure)
+        public static void DefaultInit<T>(out T[] AnyStructure)
         {
             AnyStructure = (T[])Array.CreateInstance(typeof(T), 0);
         }
@@ -35,6 +35,12 @@ namespace ModelsLib
                     tempCurrentObject[j] = CurrentObject[i];
             }
             CurrentObject = tempCurrentObject;
+        }
+
+        public bool CheckTypes<U>(U _x)
+        {
+            Type t = _x.GetType();
+            return (t.Equals(typeof(Int32)) || t.Equals(typeof(decimal)) || t.Equals(typeof(double)));
         }
     }
 }

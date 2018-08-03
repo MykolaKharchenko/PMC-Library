@@ -8,17 +8,19 @@ using ModelsLib.Interfaces;
 
 namespace ModelsLib.Collections
 {
-    public class Position : IEnumerable
+    public class Position<T> : IEnumerable
     {
-        public IPoint[] _position;
+        public Point<T>[] _position;
         public Position()
         {
-            this._position = (IPoint[])Array.CreateInstance(typeof(IPoint), 0);
+            //this._position = (IPoint[])Array.CreateInstance(typeof(IPoint), 0);
+            //this._position =
+                CommonFunc.DefaultInit(out _position);
         }
 
-        public Position(params IPoint[] _collection)
+        public Position(params Point<T>[] _collection)
         {
-            IPoint[] tempPosition = new IPoint[_collection.Length];
+            Point<T>[] tempPosition = new Point<T>[_collection.Length];
             for (int i = 0; i < _collection.Length; i++)
                 tempPosition[i] = _collection[i];
             _position = tempPosition;
@@ -36,7 +38,7 @@ namespace ModelsLib.Collections
 
         public void ClearAll()
         {
-            CommonFunc.DefaultInit(this._position);
+            CommonFunc.DefaultInit(out this._position);
         }
 
         public IEnumerator GetEnumerator()
@@ -49,7 +51,7 @@ namespace ModelsLib.Collections
             get { return _position.Length; }
         }
 
-        public IPoint this[int index]
+        public Point<T> this[int index]
         {
             get { return _position[index]; }
             set { _position[index] = value; }
