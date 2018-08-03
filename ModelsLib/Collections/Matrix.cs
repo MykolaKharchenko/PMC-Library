@@ -16,6 +16,14 @@ namespace ModelsLib.Collections
             this._matrix = (Position[])Array.CreateInstance(typeof(Position), 0);
         }
 
+        public Matrix(params Position[] _collection)
+        {
+            Position[] tempMatrix = new Position[_collection.Length];
+            for (int i = 0; i < _collection.Length; i++)
+                tempMatrix[i] = _collection[i];
+            _matrix = tempMatrix;
+        }
+
         public void AddItem(Position newPosition)
         {
             CommonFunc.AddItem<Position>(_matrix, newPosition);

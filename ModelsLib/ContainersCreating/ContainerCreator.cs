@@ -1,4 +1,5 @@
 ﻿using ModelsLib.Collections;
+using ModelsLib.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,23 +9,39 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.ContainersCreating
 {
-    public abstract class ContainersCreator
+    public abstract class ContainersCreator //<T>
     {
-        public Containers currentContainers;
+        //public Containers currentContainers;
 
-        private Container[] _containers;
+      
 
-        public Container[] containers
+        private IContainer[] _containerArr;
+
+        public IContainer[] ContainersArray
         {
-            get { return _containers; }
+            get { return _containerArr; }
         }
         public ContainersCreator()
         {
-            this._containers = (Container[])Array.CreateInstance(typeof(Container), 0);
+            this._containerArr = (IContainer[])Array.CreateInstance(typeof(IContainer), 0);
         }
-        public abstract void AddItem(Container _newContainer);
-        public abstract void RemoveItem(int _index);
-        public abstract void ClearAll();
+
+        void asdsa()
+        {
+            //currentContainers = ContainersArray;
+        }
+
+
+        public void RemoveItem(int index)
+        {
+            CommonFunc.RemoveItem(ContainersArray, index);
+        }
+        public void ClearAll()
+        {
+            CommonFunc.DefaultInit(this.ContainersArray);
+        }
+
+        public abstract void AddItem(IContainer _newContainer);
     }
 }
 

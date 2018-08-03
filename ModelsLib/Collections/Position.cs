@@ -54,5 +54,11 @@ namespace ModelsLib.Collections
             get { return _position[index]; }
             set { _position[index] = value; }
         }
+
+        public bool CheckTypes<U>(U _x)
+        {
+            Type t = _x.GetType();
+            return (t.Equals(typeof(Int32)) || t.Equals(typeof(decimal)) || t.Equals(typeof(double)));
+        }
     }
 }

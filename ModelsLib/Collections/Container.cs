@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModelsLib.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,21 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.Collections
 {
-    public class Container : IEnumerable
+    public class Container<T> : IEnumerable, IContainer
     {
         private Matrix[] _container;
 
         public Container()
         {
             this._container = (Matrix[])Array.CreateInstance(typeof(Matrix), 0);
+        }
+
+        public Container(params Matrix[] _collection)
+        {
+            Matrix[] tempContainer = new Matrix[_collection.Length];
+            for (int i = 0; i < _collection.Length; i++)
+                tempContainer[i] = _collection[i];
+            _container = tempContainer;
         }
 
         public void AddItem(Matrix newMatrix)

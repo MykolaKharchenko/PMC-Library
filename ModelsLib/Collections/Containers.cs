@@ -1,4 +1,5 @@
 ﻿using ModelsLib.Collections;
+using ModelsLib.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,44 +9,44 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.Collections
 {
-    public class Containers
+    public class Containers<T>
     {
-        private Container[] _containers;
+        public Container<T>[] _containers;
 
         public Containers()
         {
-            this._containers = (Container[])Array.CreateInstance(typeof(Container), 0);
+            this._containers = (Container<T>[])Array.CreateInstance(typeof(Container<T>), 0);
         }
 
-        public void AddItem(Container newContainer)
+        public void AddItem(Container<T> newContainer)
         {
-            CommonFunc.AddItem<Container>(_containers, newContainer);
+            CommonFunc.AddItem(_containers, newContainer);
         }
 
-        public void RemoveItem(int index)
-        {
-            CommonFunc.RemoveItem<Container>(_containers, index);
-        }
+        //public void RemoveItem(int index)
+        //{
+        //    CommonFunc.RemoveItem<IContainer>(_containers, index);
+        //}
 
-        public void ClearAll()
-        {
-            CommonFunc.DefaultInit(this._containers);
-        }
+        //public void ClearAll()
+        //{
+        //    CommonFunc.DefaultInit(this._containers);
+        //}
 
-        public IEnumerator GetEnumerator()
-        {
-            return _containers.GetEnumerator();
-        }
+        //public IEnumerator GetEnumerator()
+        //{
+        //    return _containers.GetEnumerator();
+        //}
 
-        public int Length
-        {
-            get { return _containers.Length; }
-        }
+        //public int Length
+        //{
+        //    get { return _containers.Length; }
+        //}
 
-        public Container this[int index]
-        {
-            get { return _containers[index]; }
-            set { _containers[index] = value; }
-        }
+        //public IContainer this[int index]
+        //{
+        //    get { return _containers[index]; }
+        //    set { _containers[index] = value; }
+        //}
     }
 }

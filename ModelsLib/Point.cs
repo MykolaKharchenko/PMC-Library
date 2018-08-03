@@ -9,31 +9,31 @@ namespace ModelsLib
 {
     public class Point<T> : IPoint //where T : struct
     {
-        private readonly T coordX_, coord_Y, coord_Z;//= default(T);            
+        private readonly T coord_X, coord_Y, coord_Z;//= default(T);            
         public Point(T x)
         {
 
             if (!CheckTypes(x))
                 return;
-            this.coordX_ = x;
+            this.coord_X = x;
         }
         public Point(T x, T y)
         {
             if (!CheckTypes(x))
                 return;
-            this.coordX_ = x;
+            this.coord_X = x;
             this.coord_Y = y;
         }
         public Point(T x, T y, T z)
         {
             if (!CheckTypes(x))
                 return;
-            this.coordX_ = x;
+            this.coord_X = x;
             this.coord_Y = y;
             this.coord_Z = z;
         }
 
-        public virtual bool CheckTypes<T>(T _x)
+        public bool CheckTypes<U>(U _x)
         {
             Type t = _x.GetType();
             return (t.Equals(typeof(Int32)) || t.Equals(typeof(decimal)) || t.Equals(typeof(double)));

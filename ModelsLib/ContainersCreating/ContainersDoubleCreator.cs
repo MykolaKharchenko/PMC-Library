@@ -1,4 +1,5 @@
 ﻿using ModelsLib.Collections;
+using ModelsLib.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +10,9 @@ namespace ModelsLib.ContainersCreating
 {
     public class ContainersDoubleCreator : ContainersCreator
     {
-        public override void AddItem(Container newContainer)
+        public override void AddItem(IContainer newContainer)
         {
-            CommonFunc.AddItem<Container>(containers, newContainer);
-        }
-
-        public override void RemoveItem(int index)
-        {
-            CommonFunc.RemoveItem<Container>(containers, index);
-        }
-
-        public override void ClearAll()
-        {
-            CommonFunc.DefaultInit(this.containers);
+            CommonFunc.AddItem(ContainersArray, (Container<double>)newContainer);
         }
     }
 }

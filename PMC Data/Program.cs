@@ -15,14 +15,29 @@ namespace PMC_Data
     {
         static void Main(string[] args)
         {
+            var pnt1 = new Point<int>(3, 5);
+            var pnt2 = new Point<decimal>(36, 54,564564);
+            var position1 = new Position(pnt1, pnt2);
+
+            var m1 = new Matrix(position1);
+            var cntr1 = new Container<int>(m1);
+            var cntrs1 = new Containers<int>();
+            cntrs1.AddItem(cntr1);
+            //cntrs1.AddItem(position1);
+
+            return;
+
             ContainersCreator[] cc = new ContainersCreator[2];
 
-            cc[0] = new ContainersDecimalCreator();
-            cc[1] = new ContainersIntCreator();
+            cc[0] = new ContainersIntCreator();
+            cc[1] = new ContainersDecimalCreator();
+
+            cc[0].AddItem(new Container<int>());
             
+
             foreach (var item in cc)
             {
-                item.AddItem(new Container());
+                item.AddItem(new Container<int>());         //  ага, не работает , это хорошо
             }
 
             return;
