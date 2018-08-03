@@ -8,6 +8,10 @@ using ModelsLib.Interfaces;
 
 namespace ModelsLib.Collections
 {
+    /// <summary>
+    /// The Position<T> class provides the  object  of an array of points.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Position<T> : IEnumerable
     {
         public Point<T>[] _position;
