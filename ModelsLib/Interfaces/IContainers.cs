@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.Interfaces
 {
-    public interface IContainer
+    public interface IContainers
     {
-
+        // шото нада сюда закинуть
     }
 }

@@ -43,12 +43,12 @@
     <Compile Include="Collections\Container.cs" />
     <Compile Include="Collections\Matrix.cs" />
     <Compile Include="CommonFunc.cs" />
-    <Compile Include="ContainersCreating\ContainerCreator.cs" />
+    <Compile Include="ContainersCreating\ContainersCreator.cs" />
     <Compile Include="ContainersCreating\ContainersDecimalCreator.cs" />
     <Compile Include="ContainersCreating\ContainersDoubleCreator.cs" />
     <Compile Include="ContainersCreating\ContainersIntCreator.cs" />
     <Compile Include="Collections\Containers.cs" />
-    <Compile Include="Interfaces\IContainer.cs" />
+    <Compile Include="Interfaces\IContainers.cs" />
     <Compile Include="Interfaces\Ipoint.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Collections\Position.cs" />

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.Collections
 {
-    public class Container<T> : IEnumerable, IContainer
+    public class Container<T> : IEnumerable//, IContainer
     {
         private Matrix<T>[] _container;
 

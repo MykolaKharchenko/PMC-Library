@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.Collections
 {
-    public class Containers<T>
+    public class Containers<T> : IContainers
     {
         public Container<T>[] _containers;
 
@@ -33,7 +33,7 @@ namespace ModelsLib.Collections
 
         public void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem<IContainer>(_containers, index);
+            CommonFunc.RemoveItem(_containers, index);
         }
 
         public void ClearAll()

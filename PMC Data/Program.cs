@@ -16,17 +16,19 @@ namespace PMC_Data
         static void Main(string[] args)
         {
             {
-                ContainersCreator[] cc = new ContainersCreator[2];
+                ContainersCreator[] cntrsArr = new ContainersCreator[4];
 
-                cc[0] = new ContainersIntCreator();
-                cc[1] = new ContainersDecimalCreator();
+                cntrsArr[0] = new ContainersIntCreator();
+                cntrsArr[1] = new ContainersDecimalCreator();
+                cntrsArr[2] = new ContainersDoubleCreator();
+                cntrsArr[3] = new ContainersIntCreator();
 
-                cc[0].AddItem(new Container<int>());
-
-
-                foreach (var item in cc)
+                foreach (var cntrs in cntrsArr)
                 {
-                    item.AddItem(new Container<int>());         //  ага, не работает , это хорошо
+                    foreach (var item in cntrs.ContainersArr)
+                    {
+                        Console.WriteLine(item.GetType().Name);
+                    }
                 }
                 return;
             }

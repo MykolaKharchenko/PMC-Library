@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.ContainersCreating
 {
-    public class ContainersIntCreator : ContainersCreator  //<int>
+    public class ContainersIntCreator : ContainersCreator  
     {
-        public override void AddItem(IContainer newContainer)
+        public override void AddContainers(IContainers newContainer)
         {
-            CommonFunc.AddItem(ContainersArray, (Container<int>)newContainer);
-        }    
+            CommonFunc.AddNewContainers(this.ContainersArr, new Containers<int>());
+        }
     }
 }
