@@ -12,6 +12,8 @@ namespace ModelsLib.ContainersCreating
     public abstract class ContainersCreator //<T>
     {
         // containers's creator must prefer a collection (array) of containers
+
+        // я не могу инкрементировать это значение((
         private IContainers[] _containersArr;
 
         public IContainers[] ContainersArr
@@ -21,12 +23,14 @@ namespace ModelsLib.ContainersCreating
 
         public ContainersCreator()
         {
-            this._containersArr = (IContainers[])Array.CreateInstance(typeof(IContainers), 0);
+            if (this._containersArr == null)
+                _containersArr = (IContainers[])Array.CreateInstance(typeof(IContainers), 0);
+            _containersArr = AddContainers();
         }
-        
+
         //  single method for subcreators
-        public abstract void AddContainers(IContainers _newContainer);
-        
+        public abstract IContainers[] AddContainers();
+
         public void RemoveItem(int index)
         {
             CommonFunc.RemoveItem(_containersArr, index);

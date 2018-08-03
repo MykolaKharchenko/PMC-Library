@@ -14,7 +14,7 @@ namespace PMC_Data
     class Program
     {
         static void Main(string[] args)
-        {
+        {           
             {
                 ContainersCreator[] cntrsArr = new ContainersCreator[4];
 
@@ -27,7 +27,7 @@ namespace PMC_Data
                 {
                     foreach (var item in cntrs.ContainersArr)
                     {
-                        Console.WriteLine(item.GetType().Name);
+                        Console.WriteLine(item.GetType());
                     }
                 }
                 return;
@@ -56,4 +56,78 @@ namespace PMC_Data
             Console.ReadKey();
         }
     }
+
+    abstract class Page
+    {
+    }
+    class SkillsPage : Page
+    {
+    }
+    class EducationPage : Page
+    {
+    }
+    class ExperiencePage : Page
+    {
+    }
+    class IntroductionPage : Page
+    {
+    }
+    class ResultsPage : Page
+    {
+    }
+    class ConclusionPage : Page
+    {
+    }
+    class SummaryPage : Page
+    {
+    }
+    class BibliographyPage : Page
+    {
+    }
+    abstract class Document
+    {
+        public Document()
+        {
+            this.CreatePages();
+        }
+        public List<Page> Pages { get; } = new List<Page>();
+
+        public abstract void CreatePages();
+    }
+    class Resume : Document
+    {        
+        public override void CreatePages()
+        {
+            Pages.Add(new SkillsPage());
+            Pages.Add(new EducationPage());
+            Pages.Add(new ExperiencePage());
+        }
+    }
+    class Report : Document
+    {
+        public override void CreatePages()
+        {
+            Pages.Add(new IntroductionPage());
+            Pages.Add(new ResultsPage());
+            Pages.Add(new ConclusionPage());
+            Pages.Add(new SummaryPage());
+            Pages.Add(new BibliographyPage());
+        }
+    }
+    /*
+      Document[] documents = new Document[2];
+
+            documents[0] = new Resume();
+            documents[1] = new Report();
+            
+            foreach (Document document in documents)
+            {
+                Console.WriteLine("\n" + document.GetType().Name + "--");
+                foreach (Page page in document.Pages)
+                {
+                    Console.WriteLine(" " + page.GetType().Name);
+                }
+            }            
+            Console.ReadKey();
+      */
 }

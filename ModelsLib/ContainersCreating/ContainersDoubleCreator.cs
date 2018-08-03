@@ -10,9 +10,9 @@ namespace ModelsLib.ContainersCreating
 {
     public class ContainersDoubleCreator : ContainersCreator
     {
-        public override void AddContainers(IContainers newContainer)
+        public override IContainers[] AddContainers()
         {
-            CommonFunc.AddNewContainers(this.ContainersArr, new Containers<double>());
+            return CommonFunc.AddNewContainers(this.ContainersArr, new Containers<double>());
         }
     }
 }

@@ -24,13 +24,13 @@ namespace ModelsLib
             CurrentObject = tempCurrentObject;
         }
 
-        public static void AddNewContainers(IContainers [] CurrentObject, IContainers AddingItem)
+        public static IContainers[] AddNewContainers(IContainers[] CurrentObject, IContainers AddingItem)
         {
             IContainers[] tempCurrentObject = new IContainers[CurrentObject.Length + 1];
             for (int i = 0; i < CurrentObject.Length; i++)
                 tempCurrentObject[i] = CurrentObject[i];
             tempCurrentObject[tempCurrentObject.Length - 1] = AddingItem;
-            CurrentObject = tempCurrentObject;
+            return CurrentObject = tempCurrentObject;
         }
 
         public static void RemoveItem<T>(T[] CurrentObject, int index)

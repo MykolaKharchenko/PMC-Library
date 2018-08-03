@@ -10,9 +10,12 @@ namespace ModelsLib.ContainersCreating
 {    
     public class ContainersDecimalCreator : ContainersCreator
     {
-        public override void AddContainers(IContainers newContainer)
+        public override IContainers[] AddContainers()
         {
-            CommonFunc.AddNewContainers(this.ContainersArr, new Containers<decimal>());
+          return   CommonFunc.AddNewContainers(this.ContainersArr, new Containers<decimal>());
+
+            this.AddContainers();
+            //  ContainersArr.Add;
         }
     }
 }
