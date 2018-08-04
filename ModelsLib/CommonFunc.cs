@@ -8,14 +8,23 @@ using System.Threading.Tasks;
 
 namespace ModelsLib
 {
+    /// <summary>
+    /// class which contains all generic methods for all classes-type in ModelsLib
+    /// </summary>
     class CommonFunc
     {
+        /// <summary>
+        /// imprelement  default array of type
+        /// </summary>
         public static void DefaultInit<T>(out T[] AnyStructure)
         {
             AnyStructure = (T[])Array.CreateInstance(typeof(T), 0);
         }
 
-        public static void AddItem<T>(T[] CurrentObject, T AddingItem)
+        /// <summary>
+        /// add new item in current array of members(generic)
+        /// </summary>
+        public static void AddItem<T>(ref T[] CurrentObject, T AddingItem)
         {
             T[] tempCurrentObject = new T[CurrentObject.Length + 1];
             for (int i = 0; i < CurrentObject.Length; i++)
@@ -24,7 +33,7 @@ namespace ModelsLib
             CurrentObject = tempCurrentObject;
         }
 
-        public static IContainers[] AddNewContainers(IContainers[] CurrentObject, IContainers AddingItem)
+        public static IContainers[] AddNewContainers(ref IContainers[] CurrentObject, IContainers AddingItem)
         {
             IContainers[] tempCurrentObject = new IContainers[CurrentObject.Length + 1];
             for (int i = 0; i < CurrentObject.Length; i++)
@@ -33,7 +42,10 @@ namespace ModelsLib
             return CurrentObject = tempCurrentObject;
         }
 
-        public static void RemoveItem<T>(T[] CurrentObject, int index)
+        /// <summary>
+        /// remove item from current array of members
+        /// </summary>
+        public static void RemoveItem<T>(ref T[] CurrentObject, int index)
         {
             if (index >= CurrentObject.Length)
                 return;
@@ -46,12 +58,6 @@ namespace ModelsLib
                     tempCurrentObject[j] = CurrentObject[i];
             }
             CurrentObject = tempCurrentObject;
-        }
-
-        public bool CheckTypes<U>(U _x)
-        {
-            Type t = _x.GetType();
-            return (t.Equals(typeof(Int32)) || t.Equals(typeof(decimal)) || t.Equals(typeof(double)));
         }
     }
 }

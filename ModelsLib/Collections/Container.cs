@@ -8,15 +8,27 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.Collections
 {
-    public class Container<T> : IEnumerable//, IContainer
+    /// <summary>
+    /// The Container<T> class provides the  object  of an array of Matrices.
+    /// </summary>
+    public class Container<T> : IEnumerable
     {
+        /// <summary>
+        /// array of Matrices
+        /// </summary>
         private Matrix<T>[] _container;
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Container()
         {
-            this._container = (Matrix<T>[])Array.CreateInstance(typeof(Matrix<T>), 0);
+            CommonFunc.DefaultInit(out _container);
         }
 
+        /// <summary>
+        /// constructor for many members(Matrix)
+        /// </summary>
         public Container(params Matrix<T>[] _collection)
         {
             Matrix<T>[] tempContainer = new Matrix<T>[_collection.Length];
@@ -25,16 +37,25 @@ namespace ModelsLib.Collections
             _container = tempContainer;
         }
 
+        /// <summary>
+        /// add new item in current array of Matrices
+        /// </summary>
         public void AddItem(Matrix<T> newMatrix)
         {
-            CommonFunc.AddItem(_container, newMatrix);
+            CommonFunc.AddItem(ref _container, newMatrix);
         }
 
+        /// <summary>
+        /// remove item from current array of Matrices
+        /// </summary>
         public void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem(_container, index);
+            CommonFunc.RemoveItem(ref _container, index);
         }
 
+        /// <summary>
+        /// remove all items from current array of Matrices
+        /// </summary>
         public void ClearAll()
         {
             CommonFunc.DefaultInit(out this._container);

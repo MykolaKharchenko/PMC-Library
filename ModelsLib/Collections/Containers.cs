@@ -9,15 +9,27 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.Collections
 {
+    /// <summary>
+    /// The Container<T> class provides the  object  of an Container's array.
+    /// </summary>
     public class Containers<T> : IContainers
     {
+        /// <summary>
+        /// Container's array
+        /// </summary>
         public Container<T>[] _containers;
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Containers()
         {
-            this._containers = (Container<T>[])Array.CreateInstance(typeof(Container<T>), 0);
+            CommonFunc.DefaultInit(out _containers);
         }
 
+        /// <summary>
+        /// constructor for many members(Container)
+        /// </summary>
         public Containers(params Container<T>[] _collection)
         {
             Container<T>[] tempContainers = new Container<T>[_collection.Length];
@@ -26,21 +38,30 @@ namespace ModelsLib.Collections
             _containers = tempContainers;
         }
 
+        /// <summary>
+        /// add new item in current array of Container's array
+        /// </summary>
         public void AddItem(Container<T> newContainer)
         {
-            CommonFunc.AddItem(_containers, newContainer);
+            CommonFunc.AddItem(ref _containers, newContainer);
         }
 
+        /// <summary>
+        /// remove item from current array of Container's array
+        /// </summary>
         public void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem(_containers, index);
+            CommonFunc.RemoveItem(ref _containers, index);
         }
 
+        /// <summary>
+        /// remove all items from current Container's array
+        /// </summary>
         public void ClearAll()
         {
             CommonFunc.DefaultInit(out _containers);
         }
-
+        
         public IEnumerator GetEnumerator()
         {
             return _containers.GetEnumerator();

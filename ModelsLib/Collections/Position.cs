@@ -9,19 +9,27 @@ using ModelsLib.Interfaces;
 namespace ModelsLib.Collections
 {
     /// <summary>
-    /// The Position<T> class provides the  object  of an array of points.
+    /// The Position<T> class provides the  object  of an array of Points.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class Position<T> : IEnumerable
     {
-        public Point<T>[] _position;
+        /// <summary>
+        /// array of Points
+        /// </summary>
+        private Point<T>[] _position;     
+
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Position()
         {
-            //this._position = (IPoint[])Array.CreateInstance(typeof(IPoint), 0);
-            //this._position =
-                CommonFunc.DefaultInit(out _position);
+            CommonFunc.DefaultInit(out _position);
         }
 
+        /// <summary>
+        /// constructor for many members(Point)
+        /// </summary>
+        /// <param name="_collection"></param>
         public Position(params Point<T>[] _collection)
         {
             Point<T>[] tempPosition = new Point<T>[_collection.Length];
@@ -29,17 +37,25 @@ namespace ModelsLib.Collections
                 tempPosition[i] = _collection[i];
             _position = tempPosition;
         }
-
-        public void AddItem(IPoint[] thisPosition, IPoint newPoint)
+        /// <summary>
+        /// add new item in current array of Points
+        /// </summary>
+        public void AddItem(Point<T> newPoint)
         {
-            CommonFunc.AddItem<IPoint>(thisPosition, newPoint);
+            CommonFunc.AddItem(ref _position, newPoint);
         }
 
+        /// <summary>
+        /// remove item from current array of Points
+        /// </summary>
         public void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem<IPoint>(_position, index);
+            CommonFunc.RemoveItem(ref _position, index);
         }
 
+        /// <summary>
+        /// remove all items from current array of Points
+        /// </summary>
         public void ClearAll()
         {
             CommonFunc.DefaultInit(out this._position);
@@ -54,17 +70,11 @@ namespace ModelsLib.Collections
         {
             get { return _position.Length; }
         }
-
+                
         public Point<T> this[int index]
         {
             get { return _position[index]; }
             set { _position[index] = value; }
-        }
-
-        public bool CheckTypes<U>(U _x)
-        {
-            Type t = _x.GetType();
-            return (t.Equals(typeof(Int32)) || t.Equals(typeof(decimal)) || t.Equals(typeof(double)));
         }
     }
 }

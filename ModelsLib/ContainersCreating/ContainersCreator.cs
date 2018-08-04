@@ -9,33 +9,44 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.ContainersCreating
 {
-    public abstract class ContainersCreator //<T>
+    /// <summary>
+    /// The ContainersCreator abstract class provides the  object  of an array of IContainers.
+    /// </summary>
+    public abstract class ContainersCreator
     {
-        // containers's creator must prefer a collection (array) of containers
+        protected IContainers[] _containersArr;
 
-        // я не могу инкрементировать это значение((
-        private IContainers[] _containersArr;
-
+        /// <summary>
+        /// Containers's array 
+        /// </summary>
         public IContainers[] ContainersArr
         {
             get { return _containersArr; }
         }
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public ContainersCreator()
         {
             if (this._containersArr == null)
-                _containersArr = (IContainers[])Array.CreateInstance(typeof(IContainers), 0);
+                CommonFunc.DefaultInit(out _containersArr);
             _containersArr = AddContainers();
         }
 
-        //  single method for subcreators
+        /// <summary>
+        /// add new item in Containers's array (non-generic)
+        /// </summary>
         public abstract IContainers[] AddContainers();
 
         public void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem(_containersArr, index);
+            CommonFunc.RemoveItem(ref _containersArr, index);
         }
 
+        /// <summary>
+        /// remove all items from current array of Containers's array 
+        /// </summary>
         public void ClearAll()
         {
             CommonFunc.DefaultInit(out _containersArr);

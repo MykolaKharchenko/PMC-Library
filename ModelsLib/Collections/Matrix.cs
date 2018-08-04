@@ -7,15 +7,27 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.Collections
 {
+    /// <summary>
+    /// The Matrix<T> class provides the  object  of an array of Position.
+    /// </summary>
     public class Matrix<T> : IEnumerable
     {
+        /// <summary>
+        /// array of Positions
+        /// </summary>
         private Position<T>[] _matrix;
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Matrix()
         {
-            this._matrix = (Position<T>[])Array.CreateInstance(typeof(Position<T>), 0);
+            CommonFunc.DefaultInit(out _matrix);
         }
 
+        /// <summary>
+        /// constructor for many members(Position)
+        /// </summary>
         public Matrix(params Position<T>[] _collection)
         {
             Position<T>[] tempMatrix = new Position<T>[_collection.Length];
@@ -24,16 +36,25 @@ namespace ModelsLib.Collections
             _matrix = tempMatrix;
         }
 
+        /// <summary>
+        /// add new item in current array of Positions
+        /// </summary>
         public void AddItem(Position<T> newPosition)
         {
-            CommonFunc.AddItem(_matrix, newPosition);
+            CommonFunc.AddItem(ref _matrix, newPosition);
         }
 
+        /// <summary>
+        /// remove item from current array of Positions
+        /// </summary>
         public void RemoveItem(int index)
         {
-            CommonFunc.RemoveItem(_matrix, index);
+            CommonFunc.RemoveItem(ref _matrix, index);
         }
 
+        /// <summary>
+        /// remove all items from current array of Positions
+        /// </summary>
         public void ClearAll()
         {
             CommonFunc.DefaultInit(out this._matrix);

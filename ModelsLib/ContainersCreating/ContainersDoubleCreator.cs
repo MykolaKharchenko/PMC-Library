@@ -8,11 +8,17 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.ContainersCreating
 {
+    /// <summary>
+    /// The ContainersDoubleCreator  class provides the  object an array of Containers<double>
+    /// </summary>
     public class ContainersDoubleCreator : ContainersCreator
     {
+        /// <summary>
+        /// add new double-value Containers in Containers's array
+        /// </summary>
         public override IContainers[] AddContainers()
         {
-            return CommonFunc.AddNewContainers(this.ContainersArr, new Containers<double>());
+            return CommonFunc.AddNewContainers(ref this._containersArr, new Containers<double>());
         }
     }
 }

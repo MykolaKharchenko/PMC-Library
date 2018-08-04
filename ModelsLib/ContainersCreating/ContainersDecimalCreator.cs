@@ -7,15 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ModelsLib.ContainersCreating
-{    
+{
+    /// <summary>
+    /// The ContainersDecimalCreator  class provides the  object an array of Containers<decimal>
+    /// </summary>
     public class ContainersDecimalCreator : ContainersCreator
     {
+        /// <summary>
+        /// add new decimal-value Containers in Containers's array
+        /// </summary>
         public override IContainers[] AddContainers()
         {
-          return   CommonFunc.AddNewContainers(this.ContainersArr, new Containers<decimal>());
-
-            this.AddContainers();
-            //  ContainersArr.Add;
+          return   CommonFunc.AddNewContainers(ref this._containersArr, new Containers<decimal>());
         }
     }
 }

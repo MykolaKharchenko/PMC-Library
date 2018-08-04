@@ -16,7 +16,15 @@ namespace PMC_Data
         static void Main(string[] args)
         {           
             {
+                var xx2 = new Matrix<int>();
+
+                xx2.AddItem(new Position<int>( new Point<int>(5, 6), new Point<int>()));
+
+
                 var s = new List<string>();
+
+                var sss = new Point<int>(5, 5, 6);
+                sss.GetType();
 
                 Matrix<int> mtrx1 = new Matrix<int>();
                 mtrx1.AddItem(new Position<int>());
