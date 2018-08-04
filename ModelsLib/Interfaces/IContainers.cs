@@ -8,6 +8,6 @@ namespace ModelsLib.Interfaces
 {
     public interface IContainers
     {
-        // шото нада сюда закинуть
+        int Length { get;  }
     }
 }

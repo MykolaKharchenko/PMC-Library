@@ -18,7 +18,7 @@ namespace ModelsLib.Collections
         /// Container's array
         /// </summary>
         public Container<T>[] _containers;
-
+        
         /// <summary>
         /// default constructor
         /// </summary>

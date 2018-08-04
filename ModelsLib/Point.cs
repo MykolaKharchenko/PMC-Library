@@ -12,9 +12,10 @@ namespace ModelsLib
     /// This is a generic type describing the simplest shape in 1D, 2D or 3D. 
     /// </summary>
     /// <typeparam name="T">int or double or decimal</typeparam>
-    public class Point<T> : IPoint //where T : struct
+    public class Point<T> : IPoint
     {
-        private readonly T coord_X, coord_Y, coord_Z;
+        private readonly T coord_X, coord_Y, coord_Z ;
+
         /// <summary>
         /// Constructor of empty point
         /// </summary>
@@ -27,10 +28,9 @@ namespace ModelsLib
         /// </summary>
         public Point(T x)
         {
-
             if (!CheckTypes(x))
                 return;
-            this.coord_X = x;
+            this.coord_X = x;            
         }
         /// <summary>
         /// Constructor of 2D point
@@ -63,7 +63,7 @@ namespace ModelsLib
         public bool CheckTypes<U>(U _x)
         {
             Type t = _x.GetType();
-            return (t.Equals(typeof(Int32)) || t.Equals(typeof(decimal)) || t.Equals(typeof(double)));
+            return (t.Equals(typeof(Int32?)) || t.Equals(typeof(decimal?)) || t.Equals(typeof(double?)));
         }
     }
 }
