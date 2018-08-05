@@ -18,7 +18,7 @@ namespace ModelsLib.ContainersCreating
         /// </summary>
         public override IContainers[] AddContainers()
         {
-            return CommonFunc.AddNewContainers(ref this._containersArr, new Containers<double?>());
+            return CommonFunc.AddNewContainers(ref this._containersArr, new Containers<double>());
         }
     }
 }

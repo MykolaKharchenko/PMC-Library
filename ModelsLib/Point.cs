@@ -12,47 +12,8 @@ namespace ModelsLib
     /// This is a generic type describing the simplest shape in 1D, 2D or 3D. 
     /// </summary>
     /// <typeparam name="T">int or double or decimal</typeparam>
-    public class Point<T> : IPoint
+    public class Point<T>
     {
-        private readonly T coord_X, coord_Y, coord_Z ;
-
-        /// <summary>
-        /// Constructor of empty point
-        /// </summary>
-        /// <param name="x"></param>
-        public Point()
-        {
-        }
-        /// <summary>
-        /// Constructor of 1D point
-        /// </summary>
-        public Point(T x)
-        {
-            if (!CheckTypes(x))
-                return;
-            this.coord_X = x;            
-        }
-        /// <summary>
-        /// Constructor of 2D point
-        /// </summary>
-        public Point(T x, T y)
-        {
-            if (!CheckTypes(x))
-                return;
-            this.coord_X = x;
-            this.coord_Y = y;
-        }
-        /// <summary>
-        /// Constructor of 3D point
-        /// </summary>
-        public Point(T x, T y, T z)
-        {
-            if (!CheckTypes(x))
-                return;
-            this.coord_X = x;
-            this.coord_Y = y;
-            this.coord_Z = z;
-        }
         /// <summary>
         /// Implementation Ipoint Interface: 
         /// Checking a one object.  Return false, 
@@ -60,10 +21,64 @@ namespace ModelsLib
         /// </summary>
         /// <param name="_x">An any type object</param>
         /// </summary>
-        public bool CheckTypes<U>(U _x)
+        public virtual bool CheckingTypes<T>(T _variable)
         {
-            Type t = _x.GetType();
-            return (t.Equals(typeof(Int32?)) || t.Equals(typeof(decimal?)) || t.Equals(typeof(double?)));
+            Type t = _variable.GetType();
+            return (t.Equals(typeof(Int32)) || t.Equals(typeof(decimal)) || t.Equals(typeof(double)));
         }
     }
+    /// <summary>
+    /// The Point1D<T> class provides describe  the  object  of  1D point
+    /// </summary>
+    public class Point1D<T> : Point<T>
+    {
+        public readonly T coord_X;
+        /// <summary>
+        /// constructor of 1D point
+        /// </summary>
+        public Point1D(T x)
+        {
+            if (!CheckingTypes(x))
+                return;
+            this.coord_X = x;
+        }
+    }
+    /// <summary>
+    /// The Point2D<T> class provides describe  the  object  of  2D point
+    /// </summary>
+    public class Point2D<T> : Point<T>
+    {
+        public readonly T coord_X, coord_Y;
+
+        /// <summary>
+        /// constructor of 2D point
+        /// </summary>
+        public Point2D(T x, T y)
+        {
+            if (!CheckingTypes(x))
+                return;
+            this.coord_X = x;
+            this.coord_Y = y;
+        }
+    }
+    /// <summary>
+    /// The Point3D<T> class provides describe  the  object  of  3D point
+    /// </summary>
+    public class Point3D<T> : Point<T>
+    {
+        public readonly T coord_X, coord_Y, coord_Z;
+
+        /// <summary>
+        /// constructor of 3D point
+        /// </summary>
+        public Point3D(T x, T y, T z)
+        {
+            if (!CheckingTypes(x))
+                return;
+            this.coord_X = x;
+            this.coord_Y = y;
+            this.coord_Z = z;
+        }
+    }
+
 }

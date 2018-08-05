@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ModelsLib.Interfaces;
+using ModelsLib.PointClasses;
 
 namespace ModelsLib.Collections
 {

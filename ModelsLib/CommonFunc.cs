@@ -11,7 +11,7 @@ namespace ModelsLib
     /// <summary>
     /// class which contains all generic methods for all classes-type in ModelsLib
     /// </summary>
-    class CommonFunc
+    public class CommonFunc
     {
         /// <summary>
         /// imprelement  default array of type

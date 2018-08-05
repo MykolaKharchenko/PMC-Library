@@ -50,8 +50,11 @@
     <Compile Include="Collections\Containers.cs" />
     <Compile Include="Interfaces\IContainers.cs" />
     <Compile Include="Interfaces\Ipoint.cs" />
-    <Compile Include="Point.cs" />
     <Compile Include="Collections\Position.cs" />
+    <Compile Include="PointClasses\Point.cs" />
+    <Compile Include="PointClasses\Point1D.cs" />
+    <Compile Include="PointClasses\Point2D.cs" />
+    <Compile Include="PointClasses\Point3D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
